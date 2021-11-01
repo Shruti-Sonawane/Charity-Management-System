@@ -1,0 +1,180 @@
+typroject=# create table login(lid SERIAL primary key,emalid text,password text);
+CREATE TABLE
+typroject=# create table donor(did SERIAL primary key,firstname varchar(30),middlename varchar(30),lastname varchar(30),gender varchar(9) check(gender in('Male','Female','other')),phone text,address text,email text UNIQUE,password text ,cpassword text);
+CREATE TABLE
+typroject=# create table login_donor(lid SERIAL references login(lid) on delete cascade ,did SERIAL references donor(did) on delete cascade);
+CREATE TABLE
+typroject=#  insert into donor values(1,'Parth','Aarush','Joshi','Male','9921452367','flat no 08 Viman Nagar pune 14','Parth15@gmail.com','ParthJoshi@14','ParthJoshi@14');
+INSERT 0 1
+typroject=#  insert into donor values(2,'Taara','Rajveer','Shirole','Female','9604553421','Sadashiv peth pune 30','Taara31@gmail.com','TaaraShirole@30','TaaraShirole@30');
+INSERT 0 1
+typroject=# insert into donor values(3,'Radha','Ramesh','Kale','Female','7020247845',' flat no 312 Haridwar apartment  Koregaon park pune 01','Radha@gmail.com','RadhaKale@01','RadhaKale@01');
+INSERT 0 1
+typroject=# insert into donor values(4,'Raj','Sarthak','DeshPande','Male','7020247443',' flat no 314 Mohol complex Sahakarnager pune 09','Raj10@gmail.com','RajDeshpande@01','RajDeshpande@01');
+INSERT 0 1
+typroject=# insert into donor values(5,'Siddesh','Yogesh','Deshmane','Male','7020244523','flat no 08 near Abhinav English School Deccan pune 04','Siddesh20@gmail.com','Siddesh@22','Siddesh@22');
+INSERT 0 1
+typroject=# insert into login values(1,'Parth15@gmail.com','ParthJoshi@14');
+INSERT 0 1
+typroject=# insert into login values(2,'Taara31@gmail.com','TaaraShirole@30');
+INSERT 0 1
+typroject=#  insert into login values(3,'Radha@gmail.com','RadhaKale@01');
+INSERT 0 1
+typroject=#  insert into login values(4,'Raj10@gmail.com','RajDeshpande@01');
+INSERT 0 1
+typroject=# insert into login values(5,'Siddesh20@gmail.com','Siddesh@22');
+INSERT 0 1
+typroject=# insert into login_donor values(1,1);
+INSERT 0 1
+typroject=#  insert into login_donor values(2,2);
+INSERT 0 1
+typroject=# insert into login_donor values(3,3);
+INSERT 0 1
+typroject=# insert into login_donor values(4,4);
+INSERT 0 1
+typroject=# insert into login_donor values(5,5);
+INSERT 0 1
+
+
+
+
+typroject=# create table volunteer(vid SERIAL primary key,name varchar(90),email text UNIQUE,occuption text,address text,city varchar(20),conatactno text,gender varchar(90) check(gender in('Male','Female','other')),hcyh varchar(90) check(hcyh in('I would like to volunteer my time','I would like to contribute financially','both')),offences varchar(9) check(offences in('yes','no')),medical varchar(9) check(medical in('yes','no')));
+CREATE TABLE
+typroject=# insert into volunteer values(1,'Vinay Dhamale','vinayd12@gmail.com','businessman','fashion street,Gujrat','Ahemdabad','9372346748','Male','both','no','no');
+INSERT 0 1
+typroject=# insert into volunteer values(2,'Ketan Bhoj','ketanBhoj@gmail.com','analyst job','Dreamer college lane,divya apartment,flat no 9,Nashik 9','Nashik','9345679848','Male','I would like to volunteer my time','yes','no');
+INSERT 0 1
+typroject=# insert into volunteer values(3,'Khushi Narayan','khushinarayan34@gmail.com','software engineer','Taware colony,Raghukul,Pune-11','Pune','7774524767','Female','I would like to volunteer my time','no','no');
+INSERT 0 1
+typroject=# insert into volunteer values(4,'Shraddha Kale','shraddhak4@gmail.com','Content Creater','Bibwewadi,Pune','Pune','9876424767','Female','both','no','yes');
+INSERT 0 1
+typroject=# insert into volunteer values(5,'Rohit Joshi','rohitjoshi@gmail.com','Developer','MG road,Kolhapur-06','Kolhapur','7755924767','Male','both','no','no');
+INSERT 0 1
+
+
+
+typroject=# create table login2(l2id SERIAL primary key,emalid text,password text);
+CREATE TABLE
+typroject=# create table helpneedy(hnid SERIAL primary key,name varchar(90),email text UNIQUE,address text,city varchar(90),helpneedycategory varchar(30) check(helpneedycategory in ('Personal Help','NGO')), contactno text,password text,cpassword text);
+CREATE TABLE
+typroject=#  create table login2_helpneedy(l2id SERIAL references login2(l2id) on delete cascade ,hnid SERIAL references helpneedy(hnid) on delete cascade);
+CREATE TABLE
+typroject=# insert into helpneedy values(1,'Chirag Suresh Varma','Chirag@gmail.com','Senapati bapat road pune 16','pune','Personal Help','9921302054','Chirag12@','Chirag12@');
+INSERT 0 1
+typroject=# insert into helpneedy values(2,'Praveer Santosh Agarwal','Praveer08@gmail.com','Gandi road Sayali apartment Kolhapur 01','Kholhapur','NGO','9921302044','Praveer08@','Praveer08@');
+INSERT 0 1
+typroject=# insert into helpneedy values(3,'Aditi Satish Marne','AditiM11@gmail.com','flat no 645 Yash platinum Andheri Mumbai 53','Mumbai','NGO','9890316534','AditiMarne@54','AditiMarne@54');
+INSERT 0 1
+typroject=# insert into helpneedy values(4,'sanika umesh Pawar','sanika@gmail.com','Tilak road pune 30','Pune','Personal Help','9890316345','Sanika@123','Sanika@123');
+INSERT 0 1
+typroject=# insert into helpneedy values(5,'Payal Deepak Shinde','Shindep@gmail.com','Katraj pune 46','Pune','Personal Help','9890316345','Payal@123','Payal@123');
+INSERT 0 1
+typroject=# insert into login2 values(1,'Chirag@gmail.com','Chirag12@');
+INSERT 0 1
+typroject=# insert into login2 values(2,'Praveer08@gmail.com','Praveer08@');
+INSERT 0 1
+typroject=# insert into login2 values(3,'AditiM11@gmail.com','AditiMarne@54');
+INSERT 0 1
+typroject=#  insert into login2 values(4,'sanika@gmail.com','Sanika@123');
+INSERT 0 1
+typroject=# insert into login2 values(5,'Shindep@gmail.com','Payal@123');
+INSERT 0 1
+typroject=# insert into login2_helpneedy values(1,1);
+INSERT 0 1
+typroject=# insert into login2_helpneedy values(2,2);
+INSERT 0 1
+typroject=# insert into login2_helpneedy values(3,3);
+INSERT 0 1
+typroject=# insert into login2_helpneedy values(4,4);
+INSERT 0 1
+typroject=# insert into login2_helpneedy values(5,5);
+INSERT 0 1
+
+
+typroject=# create table payment(amount int,bankname varchar(30) check(bankname in('Axis Bank','HDFC Bank','ICICI Bank','State Bank of India')),cardname varchar(30),cardnumber numeric(16),expmonth int,expyear int,cvv int);
+CREATE TABLE
+typroject=# insert into payment values('10000','Axis Bank','Divya Virat Sharma','2345567245645674','12','2025','456');
+INSERT 0 1
+typroject=# insert into payment values('5000','HDFC Bank','Samrat Vijay Kumar','2567456234654567','02','2023','786');
+INSERT 0 1
+
+typroject=# select * from donor;
+did | firstname | middlename | lastname  | gender |   phone    |                        address                         |        email        |    password     |    cpassword    
+-----+-----------+------------+-----------+--------+------------+--------------------------------------------------------+---------------------+-----------------+-----------------
+   1 | Parth     | Aarush     | Joshi     | Male   | 9921452367 | flat no 08 Viman Nagar pune 14                         | Parth15@gmail.com   | ParthJoshi@14   | ParthJoshi@14
+   2 | Taara     | Rajveer    | Shirole   | Female | 9604553421 | Sadashiv peth pune 30                                  | Taara31@gmail.com   | TaaraShirole@30 | TaaraShirole@30
+   3 | Radha     | Ramesh     | Kale      | Female | 7020247845 |  flat no 312 Haridwar apartment  Koregaon park pune 01 | Radha@gmail.com     | RadhaKale@01    | RadhaKale@01
+   4 | Raj       | Sarthak    | DeshPande | Male   | 7020247443 |  flat no 314 Mohol complex Sahakarnager pune 09        | Raj10@gmail.com     | RajDeshpande@01 | RajDeshpande@01
+   5 | Siddesh   | Yogesh     | Deshmane  | Male   | 7020244523 | flat no 08 near Abhinav English School Deccan pune 04  | Siddesh20@gmail.com | Siddesh@22      | Siddesh@22
+
+
+typroject=# select * from login;
+ lid |       emalid        |    password     
+-----+---------------------+-----------------
+   1 | Parth15@gmail.com   | ParthJoshi@14
+   2 | Taara31@gmail.com   | TaaraShirole@30
+   3 | Radha@gmail.com     | RadhaKale@01
+   4 | Raj10@gmail.com     | RajDeshpande@01
+   5 | Siddesh20@gmail.com | Siddesh@22
+(5 rows)
+
+typroject=# select * from login_donor;
+ lid | did 
+-----+-----
+   1 |   1
+   2 |   2
+   3 |   3
+   4 |   4
+   5 |   5
+(5 rows)
+
+typroject=# select * from volunteer;
+vid |      name      |           email           |     occuption     |                         address                         |   city    | conatactno | gender |               hcyh                | offences | medical 
+-----+----------------+---------------------------+-------------------+---------------------------------------------------------+-----------+------------+--------+-----------------------------------+----------+---------
+   1 | Vinay Dhamale  | vinayd12@gmail.com        | businessman       | fashion street,Gujrat                                   | Ahemdabad | 9372346748 | Male   | both                              | no       | no
+   2 | Ketan Bhoj     | ketanBhoj@gmail.com       | analyst job       | Dreamer college lane,divya apartment,flat no 9,Nashik 9 | Nashik    | 9345679848 | Male   | I would like to volunteer my time | yes      | no
+   3 | Khushi Narayan | khushinarayan34@gmail.com | software engineer | Taware colony,Raghukul,Pune-11                          | Pune      | 7774524767 | Female | I would like to volunteer my time | no       | no
+   4 | Shraddha Kale  | shraddhak4@gmail.com      | Content Creater   | Bibwewadi,Pune                                          | Pune      | 9876424767 | Female | both                              | no       | yes
+   5 | Rohit Joshi    | rohitjoshi@gmail.com      | Developer         | MG road,Kolhapur-06                                     | Kolhapur  | 7755924767 | Male   | both                              | no       | no
+(5 rows)
+
+
+typroject=# select * from helpneedy;
+ hnid |          name           |        email        |                   address                   |   city    | helpneedycategory | contactno  |   password    |   cpassword   
+------+-------------------------+---------------------+---------------------------------------------+-----------+-------------------+------------+---------------+---------------
+    1 | Chirag Suresh Varma     | Chirag@gmail.com    | Senapati bapat road pune 16                 | pune      | Personal Help     | 9921302054 | Chirag12@     | Chirag12@
+    2 | Praveer Santosh Agarwal | Praveer08@gmail.com | Gandi road Sayali apartment Kolhapur 01     | Kholhapur | NGO               | 9921302044 | Praveer08@    | Praveer08@
+    3 | Aditi Satish Marne      | AditiM11@gmail.com  | flat no 645 Yash platinum Andheri Mumbai 53 | Mumbai    | NGO               | 9890316534 | AditiMarne@54 | AditiMarne@54
+    4 | sanika umesh Pawar      | sanika@gmail.com    | Tilak road pune 30                          | Pune      | Personal Help     | 9890316345 | Sanika@123    | Sanika@123
+    5 | Payal Deepak Shinde     | Shindep@gmail.com   | Katraj pune 46                              | Pune      | Personal Help     | 9890316345 | Payal@123     | Payal@123
+(5 rows)
+
+
+typroject=# select * from login2;
+ l2id |       emalid        |   password    
+------+---------------------+---------------
+    1 | Chirag@gmail.com    | Chirag12@
+    2 | Praveer08@gmail.com | Praveer08@
+    3 | AditiM11@gmail.com  | AditiMarne@54
+    4 | sanika@gmail.com    | Sanika@123
+    5 | Shindep@gmail.com   | Payal@123
+(5 rows)
+
+typroject=# select * from login2_helpneedy;
+ l2id | hnid 
+------+------
+    1 |    1
+    2 |    2
+    3 |    3
+    4 |    4
+    5 |    5
+(5 rows)
+
+typroject=# select * from payment;
+ amount | bankname  |      cardname      |    cardnumber    | expmonth | expyear | cvv 
+--------+-----------+--------------------+------------------+----------+---------+-----
+  10000 | Axis Bank | Divya Virat Sharma | 2345567245645674 |       12 |    2025 | 456
+   5000 | HDFC Bank | Samrat Vijay Kumar | 2567456234654567 |        2 |    2023 | 786
+(2 rows)
+
+
